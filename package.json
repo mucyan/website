@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "typecheck": "vue-tsc --noEmit",
-    "build": "pnpm typecheck && vite build && node scripts/prepare-sites-build.mjs",
+    "build": "pnpm typecheck && vite build",
     "preview": "vite preview --host 0.0.0.0",
     "test": "pnpm build && node --test tests/site.test.mjs"
   },

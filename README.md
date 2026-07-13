@@ -15,7 +15,14 @@ pnpm dev
 pnpm build
 ```
 
-构建产物位于 `dist/`。`dist/client` 为静态资源，`dist/server/index.js` 为部署入口。
+构建产物位于 `dist/`，可直接部署到任意静态网站托管服务：
+
+- `dist/index.html`：中文首页
+- `dist/en/index.html`：英文首页
+- `dist/assets/`：编译后的 JavaScript 与 CSS
+- `dist/og.png`：社交分享图片
+
+项目不需要 Node.js 服务端或 Serverless/Worker 运行时。静态托管服务的发布目录设置为 `dist` 即可。
 
 ## 发布前需要确认
 

@@ -40,6 +40,7 @@ type SiteContent = {
     previousDirections: string;
     nextDirections: string;
     backToTop: string;
+    switchLanguage: string;
   };
   languageSwitch: {
     label: string;
@@ -110,6 +111,7 @@ export const siteContent: Record<Locale, SiteContent> = {
       previousDirections: "向前浏览业务方向",
       nextDirections: "向后浏览业务方向",
       backToTop: "返回页面顶部",
+      switchLanguage: "切换至英文版",
     },
     languageSwitch: { label: "EN", href: "/en/", hreflang: "en" },
     navItems: [
@@ -249,6 +251,7 @@ export const siteContent: Record<Locale, SiteContent> = {
       previousDirections: "View previous focus area",
       nextDirections: "View next focus area",
       backToTop: "Back to top",
+      switchLanguage: "Switch to the Chinese version",
     },
     languageSwitch: { label: "中文", href: "/", hreflang: "zh-CN" },
     navItems: [

@@ -1,17 +1,23 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-import { sites } from "./build/sites-vite-plugin";
+import { resolve } from "node:path";
 
 const isCodexSeatbeltSandbox = process.env.CODEX_SANDBOX === "seatbelt";
 
 export default defineConfig({
-  plugins: [vue(), sites()],
+  plugins: [vue()],
   server: isCodexSeatbeltSandbox
     ? { watch: { useFsEvents: false, usePolling: true } }
     : undefined,
   build: {
-    outDir: "dist/client",
+    outDir: "dist",
     emptyOutDir: true,
     sourcemap: false,
+    rollupOptions: {
+      input: {
+        main: resolve(process.cwd(), "index.html"),
+        en: resolve(process.cwd(), "en/index.html"),
+      },
+    },
   },
 });

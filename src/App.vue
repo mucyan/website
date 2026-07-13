@@ -34,25 +34,6 @@ function advanceHero() {
   activeHero.value = (activeHero.value + 1) % heroSlides.value.length;
 }
 
-function updateClientMetadata() {
-  document.documentElement.lang = isEnglish.value ? "en" : "zh-CN";
-  document.title = copy.value.meta.title;
-  document.querySelector<HTMLMetaElement>('meta[name="description"]')?.setAttribute("content", copy.value.meta.description);
-  document.querySelector<HTMLMetaElement>('meta[property="og:title"]')?.setAttribute("content", copy.value.meta.title);
-  document.querySelector<HTMLMetaElement>('meta[property="og:description"]')?.setAttribute("content", copy.value.meta.description);
-  document.querySelector<HTMLMetaElement>('meta[property="og:locale"]')?.setAttribute("content", isEnglish.value ? "en_US" : "zh_CN");
-  document.querySelector<HTMLMetaElement>('meta[name="twitter:title"]')?.setAttribute("content", copy.value.meta.title);
-  document.querySelector<HTMLMetaElement>('meta[name="twitter:description"]')?.setAttribute("content", copy.value.meta.description);
-  document.querySelector<HTMLLinkElement>('link[rel="canonical"]')?.setAttribute(
-    "href",
-    new URL(isEnglish.value ? "/en/" : "/", window.location.origin).href,
-  );
-  document.querySelector<HTMLMetaElement>('meta[property="og:url"]')?.setAttribute(
-    "content",
-    new URL(isEnglish.value ? "/en/" : "/", window.location.origin).href,
-  );
-}
-
 function startHeroTimer() {
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   window.clearInterval(heroTimer);
@@ -129,7 +110,6 @@ function handleMobileBreakpoint(event: MediaQueryListEvent) {
 }
 
 onMounted(async () => {
-  updateClientMetadata();
   startHeroTimer();
   handleScroll();
   window.addEventListener("scroll", handleScroll, { passive: true });
@@ -186,8 +166,15 @@ onBeforeUnmount(() => {
         </nav>
 
         <div class="header-meta">
-          <a :href="copy.languageSwitch.href" :hreflang="copy.languageSwitch.hreflang">
-            {{ copy.languageSwitch.label }}
+          <a
+            class="language-switch"
+            :href="copy.languageSwitch.href"
+            :hreflang="copy.languageSwitch.hreflang"
+            :aria-label="copy.accessibility.switchLanguage"
+          >
+            <span :class="{ 'is-active': !isEnglish }" aria-hidden="true">中</span>
+            <span class="language-divider" aria-hidden="true">/</span>
+            <span :class="{ 'is-active': isEnglish }" aria-hidden="true">EN</span>
           </a>
         </div>
 
@@ -215,7 +202,13 @@ onBeforeUnmount(() => {
         <a v-for="(item, index) in navItems" :key="item.href" :href="item.href" @click="closeMenu()">
           <span>0{{ index + 1 }}</span>{{ item.label }}
         </a>
-        <a class="mobile-language" :href="copy.languageSwitch.href" :hreflang="copy.languageSwitch.hreflang" @click="closeMenu()">
+        <a
+          class="mobile-language"
+          :href="copy.languageSwitch.href"
+          :hreflang="copy.languageSwitch.hreflang"
+          :aria-label="copy.accessibility.switchLanguage"
+          @click="closeMenu()"
+        >
           <span aria-hidden="true">↗</span>{{ copy.languageSwitch.label }}
         </a>
         <p>Mucyan · Zibo, Shandong</p>
