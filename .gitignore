@@ -1,0 +1,18 @@
+# Dependencies
+/node_modules/
+/.pnpm-store/
+
+# Build and local preview output
+/dist/
+/coverage/
+/.wrangler/
+
+# Local environment and logs
+.env*
+!.env.example
+*.log
+.DS_Store
+
+# Local work artifacts
+/outputs/
+/work/
