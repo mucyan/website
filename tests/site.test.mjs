@@ -25,6 +25,8 @@ test("build is a standalone static website at the dist root", async () => {
   const source = await readFile(new URL("../src/App.vue", import.meta.url), "utf8");
   const content = await readFile(new URL("../src/content.ts", import.meta.url), "utf8");
   assert.match(source, /鲁ICP备2026035323号-1/);
+  assert.match(source, /鲁公网安备37030302001269号/);
+  assert.match(source, /beian\.mps\.gov\.cn\/#\/query\/webSearch\?code=37030302001269/);
   assert.match(source, /class="language-switch"/);
   assert.match(source, /:href="copy\.languageSwitch\.href"/);
   assert.doesNotMatch(source, /法定代表人|甄彬/);

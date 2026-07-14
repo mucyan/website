@@ -422,6 +422,13 @@ onBeforeUnmount(() => {
           <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">
             鲁ICP备2026035323号-1
           </a>
+          <a
+            href="https://beian.mps.gov.cn/#/query/webSearch?code=37030302001269"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            鲁公网安备37030302001269号
+          </a>
           <span>mucyan.com</span>
         </div>
       </div>
