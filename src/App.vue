@@ -378,8 +378,9 @@ onBeforeUnmount(() => {
           <h2>{{ copy.contact.title[0] }}<br />{{ copy.contact.title[1] }}</h2>
           <p class="contact-lead">{{ copy.contact.lead }}</p>
           <div class="contact-actions">
-            <span>{{ copy.contact.email }}</span>
-            <span>{{ copy.contact.phone }}</span>
+            <a :href="`mailto:${copy.contact.email}`">
+              {{ copy.contact.emailLabel }} · {{ copy.contact.email }}
+            </a>
           </div>
         </div>
         <div class="contact-address">
@@ -423,11 +424,13 @@ onBeforeUnmount(() => {
             鲁ICP备2026035323号-1
           </a>
           <a
+            class="public-security-filing"
             href="https://beian.mps.gov.cn/#/query/webSearch?code=37030302001269"
             target="_blank"
             rel="noopener noreferrer"
           >
-            鲁公网安备37030302001269号
+            <img src="/public-security-filing.png" alt="" width="62" height="67" aria-hidden="true" />
+            <span>鲁公网安备37030302001269号</span>
           </a>
           <span>mucyan.com</span>
         </div>

@@ -78,8 +78,8 @@ type SiteContent = {
   contact: {
     title: [string, string];
     lead: string;
+    emailLabel: string;
     email: string;
-    phone: string;
     addressLabel: string;
     addressLines: [string, string];
   };
@@ -216,9 +216,9 @@ export const siteContent: Record<Locale, SiteContent> = {
     },
     contact: {
       title: ["让下一步，", "清晰发生。"],
-      lead: "如果你正在思考软件、智能应用、数据或系统方向的问题，欢迎在正式联系渠道上线后与我们交流。",
-      email: "商务邮箱 · 待补充",
-      phone: "联系电话 · 待补充",
+      lead: "如果你正在思考软件、智能应用、数据或系统方向的问题，欢迎通过商务邮箱与我们联系。",
+      emailLabel: "商务邮箱",
+      email: "contact@mucyan.com",
       addressLabel: "REGISTERED OFFICE",
       addressLines: [
         "山东省淄博市张店区马尚街道办事处新村西路266号",
@@ -356,9 +356,9 @@ export const siteContent: Record<Locale, SiteContent> = {
     },
     contact: {
       title: ["Make the next step", "clear."],
-      lead: "If you are exploring a question involving software, intelligent applications, data, or connected systems, we welcome the opportunity to talk. Official business contact details will be published here.",
-      email: "Business email · Coming soon",
-      phone: "Telephone · Coming soon",
+      lead: "If you are exploring a question involving software, intelligent applications, data, or connected systems, contact us by business email. We welcome the opportunity to understand your needs and discuss the next steps.",
+      emailLabel: "Business email",
+      email: "contact@mucyan.com",
       addressLabel: "REGISTERED OFFICE",
       addressLines: [
         "Room 404, University Student Entrepreneurship Space, No. 266 Xincun West Road, Mashang Subdistrict,",

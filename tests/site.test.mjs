@@ -10,6 +10,7 @@ test("build is a standalone static website at the dist root", async () => {
   const html = await readFile(new URL("../dist/index.html", import.meta.url), "utf8");
   const assets = await readdir(new URL("../dist/assets/", import.meta.url));
   await access(new URL("../dist/og.png", import.meta.url));
+  await access(new URL("../dist/public-security-filing.png", import.meta.url));
   await assertMissing(new URL("../dist/client/", import.meta.url));
   await assertMissing(new URL("../dist/server/", import.meta.url));
 
@@ -27,10 +28,15 @@ test("build is a standalone static website at the dist root", async () => {
   assert.match(source, /鲁ICP备2026035323号-1/);
   assert.match(source, /鲁公网安备37030302001269号/);
   assert.match(source, /beian\.mps\.gov\.cn\/#\/query\/webSearch\?code=37030302001269/);
+  assert.match(source, /src="\/public-security-filing\.png"/);
   assert.match(source, /class="language-switch"/);
   assert.match(source, /:href="copy\.languageSwitch\.href"/);
   assert.doesNotMatch(source, /法定代表人|甄彬/);
   assert.match(content, /Mucyan is the English brand name of 沐沧科技（淄博）有限公司/);
+  assert.match(content, /email: "contact@mucyan\.com"/);
+  assert.doesNotMatch(content, /phone:|联系电话 ·|Telephone ·/);
+  assert.match(source, /mailto:\$\{copy\.contact\.email\}/);
+  assert.doesNotMatch(source, /copy\.contact\.phone/);
   assert.match(content, /languageSwitch: \{ label: "EN", href: "\/en\/"/);
   assert.match(content, /languageSwitch: \{ label: "中文", href: "\/"/);
   assert.doesNotMatch(content, /法定代表人|甄彬/);

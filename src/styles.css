@@ -1111,12 +1111,21 @@ img {
   gap: 12px;
 }
 
-.contact-actions span {
+.contact-actions a {
   padding: 14px 20px;
   color: rgba(255, 255, 255, 0.66);
   border: 1px solid rgba(255, 255, 255, 0.24);
   border-radius: 99px;
   font-size: 13px;
+  transition: color 180ms ease, background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.contact-actions a:hover,
+.contact-actions a:focus-visible {
+  color: var(--brand-950);
+  background: var(--accent-bright);
+  border-color: var(--accent-bright);
+  transform: translateY(-1px);
 }
 
 .contact-address {
@@ -1235,6 +1244,18 @@ img {
 .footer-legal a:hover,
 .footer-legal a:focus-visible {
   color: var(--white);
+}
+
+.public-security-filing {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.public-security-filing img {
+  width: 16px;
+  height: auto;
+  flex: none;
 }
 
 [data-reveal] {
