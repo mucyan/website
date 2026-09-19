@@ -114,7 +114,7 @@ onMounted(async () => {
   handleScroll();
   window.addEventListener("scroll", handleScroll, { passive: true });
   window.addEventListener("keydown", handleKeyboard);
-  mobileMediaQuery = window.matchMedia("(max-width: 820px)");
+  mobileMediaQuery = window.matchMedia("(max-width: 980px)");
   mobileMediaQuery.addEventListener("change", handleMobileBreakpoint);
 
   await nextTick();
@@ -242,7 +242,7 @@ onBeforeUnmount(() => {
               <span>{{ currentHero.titleAccent }}</span>
             </h1>
             <p class="hero-description">{{ currentHero.description }}</p>
-            <a class="text-link" href="#about">
+            <a class="text-link" href="#products">
               {{ copy.heroLearnMore }}
               <span aria-hidden="true">↘</span>
             </a>
@@ -275,6 +275,43 @@ onBeforeUnmount(() => {
           </button>
         </div>
 
+      </section>
+
+      <section id="products" class="products section-pad" aria-labelledby="products-title">
+        <div class="section-heading" data-reveal>
+          <div>
+            <p class="overline">{{ copy.product.overline }}</p>
+            <h2 id="products-title">{{ copy.product.title[0] }}<br />{{ copy.product.title[1] }}</h2>
+          </div>
+        </div>
+        <article class="product-showcase" aria-labelledby="meowpush-title" data-reveal>
+          <div class="product-summary">
+            <p class="product-badge">{{ copy.product.badge }}</p>
+            <img class="product-icon" src="/meowpush-icon.png" alt="" width="1024" height="1024" loading="lazy" decoding="async" />
+            <h3 id="meowpush-title">MeowPush</h3>
+            <p class="product-category">{{ copy.product.category }}</p>
+            <p class="product-description">{{ copy.product.description }}</p>
+            <div class="product-actions">
+              <a class="product-primary-link" href="https://meowpush.com/" target="_blank" rel="noopener noreferrer">
+                {{ copy.product.websiteLabel }} <span aria-hidden="true">↗</span>
+              </a>
+              <a class="product-docs-link" href="https://docs.meowpush.com/" target="_blank" rel="noopener noreferrer">
+                {{ copy.product.docsLabel }}
+              </a>
+            </div>
+          </div>
+          <div class="product-details">
+            <h4>{{ copy.product.scenariosLabel }}</h4>
+            <div class="product-scenarios">
+              <div v-for="(scenario, index) in copy.product.scenarios" :key="scenario.title" class="product-scenario">
+                <span class="product-scenario-index" aria-hidden="true">0{{ index + 1 }}</span>
+                <h5>{{ scenario.title }}</h5>
+                <p>{{ scenario.description }}</p>
+              </div>
+            </div>
+            <p class="product-availability">{{ copy.product.availability }}</p>
+          </div>
+        </article>
       </section>
 
       <section id="about" class="about section-pad">

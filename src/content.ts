@@ -54,6 +54,18 @@ type SiteContent = {
     pause: string;
     play: string;
   };
+  product: {
+    overline: string;
+    title: [string, string];
+    badge: string;
+    category: string;
+    description: string;
+    websiteLabel: string;
+    docsLabel: string;
+    scenariosLabel: string;
+    scenarios: Array<{ title: string; description: string }>;
+    availability: string;
+  };
   about: {
     overline: string;
     title: [string, string];
@@ -96,7 +108,7 @@ export const siteContent: Record<Locale, SiteContent> = {
   zh: {
     meta: {
       title: "Mucyan 沐沧科技｜让技术清晰发生",
-      description: "Mucyan 沐沧科技，面向软件、智能应用、数据与系统方向，探索清晰、可靠、可持续的技术解决方案。",
+      description: "Mucyan 沐沧科技，MeowPush 的创造者。从跨平台推送通知出发，构建连接工作流、系统与设备的软件产品。",
     },
     accessibility: {
       skipLink: "跳至主要内容",
@@ -115,6 +127,7 @@ export const siteContent: Record<Locale, SiteContent> = {
     },
     languageSwitch: { label: "EN", href: "/en/", hreflang: "en" },
     navItems: [
+      { label: "我们的产品", href: "#products" },
       { label: "关于我们", href: "#about" },
       { label: "业务方向", href: "#capabilities" },
       { label: "工作方式", href: "#approach" },
@@ -123,48 +136,65 @@ export const siteContent: Record<Locale, SiteContent> = {
     ],
     heroSlides: [
       {
-        eyebrow: "MUCYAN · SOFTWARE & TECHNOLOGY",
-        title: "让复杂，",
-        titleAccent: "清晰发生",
-        description: "从软件到智能应用，以清晰的理解与可靠的构建，让技术真正服务于问题。",
-        theme: "ocean",
+        eyebrow: "MUCYAN · MEOWPUSH",
+        title: "让消息，",
+        titleAccent: "连接日常",
+        description: "从首款产品 MeowPush 出发，让工作流、系统与设备之间的重要消息，走进你的日常。",
+        theme: "notify",
       },
       {
-        eyebrow: "INTELLIGENT APPLICATIONS",
-        title: "让智能，",
-        titleAccent: "走进场景",
-        description: "关注人工智能软件与应用系统，探索智能能力与真实场景之间的连接。",
+        eyebrow: "AGENT WORKFLOWS",
+        title: "让进展，",
+        titleAccent: "及时可见",
+        description: "为 Agent 工作流接入通知，把任务动态从运行中的系统带到你身边。",
         theme: "signal",
       },
       {
-        eyebrow: "DATA & CONNECTION",
-        title: "让数据，",
-        titleAccent: "连接价值",
-        description: "围绕数据、物联网与系统集成方向，为信息流动建立更清晰的路径。",
+        eyebrow: "SYSTEMS & DEVICES",
+        title: "让连接，",
+        titleAccent: "更加简单",
+        description: "通过 Webhook 连接项目、监控与家居系统，让信息在不同场景之间流动。",
         theme: "current",
       },
       {
         eyebrow: "LONG-TERM TECHNOLOGY",
         title: "让技术，",
         titleAccent: "持续生长",
-        description: "尊重长期价值，以迭代、协作与持续改进回应不断变化的需求。",
+        description: "从真实使用中发现问题，以清晰的设计与持续迭代，让软件成为日常的助力。",
         theme: "horizon",
       },
     ],
-    heroLearnMore: "认识沐沧",
+    heroLearnMore: "探索首款产品",
     heroPlayback: { pause: "暂停主视觉自动切换", play: "继续主视觉自动切换" },
+    product: {
+      overline: "我们的产品 · OUR PRODUCTS",
+      title: ["让重要消息，", "抵达你的设备。"],
+      badge: "沐沧科技首款产品",
+      category: "跨平台 Webhook 推送通知应用",
+      description: "MeowPush 连接 Agent 工作流、监控系统、项目与家居系统，将其中的消息推送到你的设备，让工作与生活中的重要动态触手可及。",
+      websiteLabel: "访问产品官网",
+      docsLabel: "阅读使用文档",
+      scenariosLabel: "从工作流到日常生活",
+      scenarios: [
+        { title: "Agent 工作流", description: "在智能体工作流中接入通知，及时了解任务动态。" },
+        { title: "监控告警", description: "将监控系统中的告警送达设备，关注需要处理的问题。" },
+        { title: "项目集成", description: "通过 Webhook 接入项目，让事件与通知建立连接。" },
+        { title: "家居系统", description: "连接家居系统，把日常设备的动态带到身边。" },
+      ],
+      availability: "前往产品官网查看各平台的下载入口与最新支持情况。",
+    },
     about: {
       overline: "关于沐沧",
-      title: ["从淄博出发，", "向清晰而有价值的技术前进。"],
+      title: ["从真实需求出发，", "把技术做成好用的产品。"],
       paragraphs: [
-        "沐沧科技是一家位于山东淄博的科技企业，面向软件、智能应用、数据与系统方向，探索清晰、可靠、可持续的技术解决方案。",
-        "“Mucyan”承载着我们对技术的理解：像水一样理解环境，像海一样容纳复杂，让每一次构建都抵达真实需求。",
+        "沐沧科技是一家位于山东淄博的科技企业。我们关注软件、智能应用与系统连接，致力于把复杂的技术能力转化为清晰、实用的产品体验。",
+        "从首款产品 MeowPush 出发，我们将对技术的理解落到具体应用：连接工作流、系统与设备，让重要消息抵达用户，让每一次构建都回应真实需求。",
       ],
       marqueeMiddle: "沐沧科技",
     },
     capabilities: {
       overline: "业务方向 · WHAT WE EXPLORE",
-      title: ["以技术为方法，", "回应真实问题。"],
+      title: ["围绕产品，", "持续构建技术能力。"],
       items: [
         {
           index: "01",
@@ -198,7 +228,7 @@ export const siteContent: Record<Locale, SiteContent> = {
     },
     approach: {
       overline: "我们的工作方式 · HOW WE WORK",
-      title: ["好的技术，", "从清晰开始。"],
+      title: ["好用的产品，", "从理解开始。"],
       principles: [
         { number: "01", title: "先理解问题", description: "在写下方案之前，先回到场景、目标与约束本身。" },
         { number: "02", title: "以迭代构建", description: "把复杂目标拆成可验证的步骤，让每一次前进都有依据。" },
@@ -215,8 +245,8 @@ export const siteContent: Record<Locale, SiteContent> = {
       ],
     },
     contact: {
-      title: ["让下一步，", "清晰发生。"],
-      lead: "如果你正在思考软件、智能应用、数据或系统方向的问题，欢迎通过商务邮箱与我们联系。",
+      title: ["从一次交流，", "开始新的连接。"],
+      lead: "无论是 MeowPush 的使用反馈、产品合作，还是软件与系统连接方面的想法，都欢迎通过商务邮箱与我们交流。",
       emailLabel: "商务邮箱",
       email: "contact@mucyan.com",
       addressLabel: "REGISTERED OFFICE",
@@ -236,7 +266,7 @@ export const siteContent: Record<Locale, SiteContent> = {
   en: {
     meta: {
       title: "Mucyan | Technology Made Clear",
-      description: "Mucyan is a technology company based in Zibo, China, exploring software, intelligent applications, data services, and connected systems.",
+      description: "Mucyan is the company behind MeowPush. We build software that connects workflows, systems, and devices, starting with cross-platform push notifications.",
     },
     accessibility: {
       skipLink: "Skip to main content",
@@ -255,6 +285,7 @@ export const siteContent: Record<Locale, SiteContent> = {
     },
     languageSwitch: { label: "中文", href: "/", hreflang: "zh-CN" },
     navItems: [
+      { label: "Products", href: "#products" },
       { label: "About", href: "#about" },
       { label: "Focus", href: "#capabilities" },
       { label: "Approach", href: "#approach" },
@@ -263,48 +294,65 @@ export const siteContent: Record<Locale, SiteContent> = {
     ],
     heroSlides: [
       {
-        eyebrow: "MUCYAN · SOFTWARE & TECHNOLOGY",
-        title: "Make complexity",
-        titleAccent: "clear.",
-        description: "From software to intelligent applications, we approach real problems with clear thinking and reliable engineering.",
-        theme: "ocean",
+        eyebrow: "MUCYAN · MEOWPUSH",
+        title: "Stay connected",
+        titleAccent: "to what matters.",
+        description: "Meet MeowPush, our first product: bringing important updates from workflows, systems, and devices into everyday life.",
+        theme: "notify",
       },
       {
-        eyebrow: "INTELLIGENT APPLICATIONS",
-        title: "Bring intelligence",
-        titleAccent: "into context.",
-        description: "We explore the connection between intelligent software and the real settings in which it can create practical value.",
+        eyebrow: "AGENT WORKFLOWS",
+        title: "Keep progress",
+        titleAccent: "in sight.",
+        description: "Connect notifications to your Agent workflows and bring task updates from running systems to your devices.",
         theme: "signal",
       },
       {
-        eyebrow: "DATA & CONNECTION",
-        title: "Connect data",
-        titleAccent: "to value.",
-        description: "Across data, IoT, and systems integration, we look for clearer paths through which information can move and work together.",
+        eyebrow: "SYSTEMS & DEVICES",
+        title: "Make connections",
+        titleAccent: "simple.",
+        description: "Use Webhooks to connect projects, monitoring, and home systems, bringing updates across the contexts you care about.",
         theme: "current",
       },
       {
         eyebrow: "LONG-TERM TECHNOLOGY",
         title: "Build technology",
         titleAccent: "to last.",
-        description: "We value iteration, collaboration, and continuous improvement as needs and technologies continue to evolve.",
+        description: "We learn from real use and keep improving, with clear design and practical software for everyday needs.",
         theme: "horizon",
       },
     ],
-    heroLearnMore: "Meet Mucyan",
+    heroLearnMore: "Explore our first product",
     heroPlayback: { pause: "Pause automatic hero rotation", play: "Resume automatic hero rotation" },
+    product: {
+      overline: "OUR PRODUCTS",
+      title: ["Important updates,", "delivered to your devices."],
+      badge: "Mucyan’s first product",
+      category: "Cross-platform Webhook push notifications",
+      description: "MeowPush connects Agent workflows, monitoring systems, projects, and home systems to notifications on your devices, keeping important updates from work and everyday life within reach.",
+      websiteLabel: "Visit product website",
+      docsLabel: "Read documentation",
+      scenariosLabel: "From workflows to everyday life",
+      scenarios: [
+        { title: "Agent workflows", description: "Add notifications to your Agent workflows to stay informed about tasks." },
+        { title: "Monitoring alerts", description: "Receive alerts from monitoring systems on your devices when issues need attention." },
+        { title: "Project integration", description: "Connect project events to push notifications through Webhooks." },
+        { title: "Home systems", description: "Bring updates from connected home systems to your devices." },
+      ],
+      availability: "Visit the product website for downloads and the latest platform availability.",
+    },
     about: {
       overline: "ABOUT MUCYAN",
-      title: ["From Zibo,", "toward technology with clarity and value."],
+      title: ["Real needs.", "Thoughtful software."],
       paragraphs: [
         "Mucyan is the English brand name of 沐沧科技（淄博）有限公司, a technology company established in Zibo, Shandong, China, on 18 May 2026. Its registered business scope includes technology development and consulting, software development, AI software and application systems, data services, IoT technologies, information-security software, systems integration, and software outsourcing.",
-        "Mucyan approaches technology by first understanding the context, objectives, and constraints behind each need. Across software, intelligent applications, data, and connected systems, we seek to make complex questions clearer and build in practical, verifiable steps, with attention to reliability, maintainability, and continuous improvement.",
+        "Our first product, MeowPush, puts this approach into practice by connecting workflows, systems, and devices through push notifications. We start with real needs and build in practical, verifiable steps, with attention to reliability, maintainability, and continuous improvement.",
       ],
       marqueeMiddle: "TECHNOLOGY",
     },
     capabilities: {
       overline: "OUR FOCUS · WHAT WE EXPLORE",
-      title: ["Technology as a method,", "real problems as the focus."],
+      title: ["Building the capabilities", "behind our products."],
       items: [
         {
           index: "01",
@@ -338,7 +386,7 @@ export const siteContent: Record<Locale, SiteContent> = {
     },
     approach: {
       overline: "OUR APPROACH · HOW WE WORK",
-      title: ["Good technology", "begins with clarity."],
+      title: ["Useful products", "begin with understanding."],
       principles: [
         { number: "01", title: "Understand first", description: "Before proposing a solution, we return to the context, objectives, and constraints." },
         { number: "02", title: "Build iteratively", description: "We break complex goals into verifiable steps, so each decision is grounded in evidence." },
@@ -355,8 +403,8 @@ export const siteContent: Record<Locale, SiteContent> = {
       ],
     },
     contact: {
-      title: ["Make the next step", "clear."],
-      lead: "If you are exploring a question involving software, intelligent applications, data, or connected systems, contact us by business email. We welcome the opportunity to understand your needs and discuss the next steps.",
+      title: ["A conversation.", "A new connection."],
+      lead: "Have feedback on MeowPush, a product partnership in mind, or an idea about software and connected systems? We would love to hear from you by business email.",
       emailLabel: "Business email",
       email: "contact@mucyan.com",
       addressLabel: "REGISTERED OFFICE",
